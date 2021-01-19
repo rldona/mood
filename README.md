@@ -1,2 +1,3 @@
-# mood
-mood app
+# Mood
+
+Mood app
