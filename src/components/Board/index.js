@@ -2,23 +2,38 @@ import './Board.css';
 
 import Square from '../Square';
 
-function NumberList(props) {
-  const numbers = props.numbers;
-  const listItems = numbers.map((number) => {
-    console.log(number);
-    return <Square index={number} />
-  });
+const handleSquareSelected = (square) => {
+  console.log(square);
+}
+
+function SquareList(props) {
+  const positions = props.positions;
+
+  let squareList = [], index = 1;
+
+  for (let i = 0; i < positions.length; i++) {
+    for (let j = 1; j <= positions[i].days; j++) {
+      const date = {
+        'index': index,
+        'month': positions[i].month,
+        'day': j
+      };
+      squareList.push(<Square key={date.index} date={date} onSquareSelected={handleSquareSelected} />);
+      index++;
+    }
+  }
+
   return (
-    <ul>{listItems}</ul>
+    <ul>{squareList}</ul>
   );
 }
 
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function Board(props) {
+  const { positions } = props.config;
 
-function Board() {
   return (
     <div className="Board">
-      <NumberList numbers={numbers} />,
+      <SquareList positions={positions} />
     </div>
   );
 }

@@ -1,8 +1,8 @@
 .Board ul {
   display: flex;
   justify-content: flex-start;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-direction: column;
+  flex-wrap: wrap;
   background-color: bisque;
   width: 500px;
   height: 500px;
