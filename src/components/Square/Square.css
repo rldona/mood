@@ -1,0 +1,23 @@
+.Square {
+  display: block;
+  background-color: #999;
+  border: 1px solid #222;
+  width: 30px;
+  height: 30px;
+}
+
+.Square p {
+  padding: 7px;
+}
+
+.Square.theme.happy {
+  background-color: mediumseagreen;
+}
+
+.Square.theme.neutral {
+  background-color: goldenrod;
+}
+
+.Square.theme.bad {
+  background-color: tomato;
+}
