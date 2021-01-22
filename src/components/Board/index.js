@@ -16,7 +16,8 @@ function SquareList(props) {
       const date = {
         'index': index,
         'month': positions[i].month,
-        'day': j
+        'day': j,
+        'mood': 'happy'
       };
       squareList.push(<Square key={date.index} date={date} onSquareSelected={handleSquareSelected} />);
       index++;
