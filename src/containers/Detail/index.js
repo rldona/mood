@@ -4,7 +4,6 @@ import { firestore } from "../../common/firebase";
 import { config } from "../../common/config";
 
 import Board from '../../components/Board';
-import Loading from '../../components/Loading';
 
 const Detail = () => {
   const [data, setData] = useState([]);
@@ -35,7 +34,7 @@ const Detail = () => {
     intDataFromFirestore();
   }, []);
 
-  if (data.length === 0) return null
+  if (data.length === 0) return (null)
 
   return (
     <div className="Detail">
