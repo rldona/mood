@@ -17,9 +17,11 @@ function SquareList(props) {
         'day': j,
         'mood': 'happy'
       };
-      squareList.push(<Square key={date.index} date={date} onSquareSelected={handleSquareSelected} />);
-      // sacarlo a la app y hacer la carga en Firestore
-      // firestore.collection("mood-registry").doc(`${index}`).set(date);
+
+      squareList.push(
+        <Square key={date.index} date={date} onSquareSelected={handleSquareSelected} />
+      );
+
       index++;
     }
   }

@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from "react";
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+
 import { firestore } from "../../common/firebase";
 import { config } from "../../common/config";
 
+import Home from '../../pages/Home';
 import Board from '../Board';
 import Loading from '../Loading';
 
@@ -40,7 +48,19 @@ const App = () => {
 
   return (
     <div className="App">
-      <Board config={config} />
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/board">
+              <Board config={config} />
+            </Route>
+            <Redirect from="*" to="/"/>
+          </Switch>
+        </div>
+      </Router>
     </div>
   );
 }
