@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 
 import { firestore } from "../../common/firebase";
 import { config } from "../../common/config";
+
 import Board from '../Board';
+import Loading from '../Loading';
 
 import './App.css';
 
 const App = () => {
   const [data, setData] = useState([]);
-
   const intDataFromFirestore = () => {
     let squareList = [], index = 1;
 
@@ -29,16 +30,13 @@ const App = () => {
     }
 
     setData(squareList);
-
-    console.log('--- Render Control ---');
   }
 
   useEffect(() => {
     intDataFromFirestore();
-    console.log('--- Render Control ---');
   }, []);
 
-  if (data.length === 0) return (<div>Loading...</div>);
+  if (data.length === 0) return (<Loading />);
 
   return (
     <div className="App">
