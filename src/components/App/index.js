@@ -14,19 +14,17 @@ import './App.css';
 
 const App = () => {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/detail">
-            <Detail />
-          </Route>
-          <Redirect from="*" to="/"/>
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/detail">
+          <Detail />
+        </Route>
+        <Redirect from="*" to="/"/>
+      </Switch>
+    </Router>
   );
 }
 
