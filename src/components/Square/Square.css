@@ -10,6 +10,12 @@
 
 .Square p {
   padding: 7px;
+  text-align: center;
+}
+
+.Square span {
+  display: block;
+  text-align: center;
 }
 
 .Square.theme.happy {

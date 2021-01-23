@@ -28,6 +28,7 @@ const Board = (props) => {
 
   return (
     <div className="Board">
+      <Loading />
       <SquareList positions={positions} />
     </div>
   );
