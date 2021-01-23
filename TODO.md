@@ -3,7 +3,10 @@
 [OK] Subir la info a Firebase
 
 [OK] Añadir routing
-[] Crear pantalla principal en la que se pregunta por el estado de ánimo
+[OK] Crear pantalla principal en la que se pregunta por el estado de ánimo
+
+[] Ordenar el array de objetos por index
+
 [] Almanenar el estado de ánimo en Firebase matheando la fecha actual (dia y mes) con el listado creado
 
 [] Cada vez que cargue el componente tablero, recuperar el listado de Firebase pintarlo el tablero

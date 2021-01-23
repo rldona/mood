@@ -4,30 +4,29 @@ const handleSquareSelected = (square) => {
   console.log(square);
 }
 
-function SquareList(props) {
-  const positions = props.positions;
+const SquareList = (props) => {
+  const { squares } = props;
 
-  let squareList = [], index = 1;
+  console.log(squares);
 
-  for (let i = 0; i < positions.length; i++) {
-    for (let j = 1; j <= positions[i].days; j++) {
-      const date = {
-        'index': index,
-        'month': positions[i].month,
-        'day': j,
-        'mood': 'happy'
-      };
+  let squareList = [];
 
-      squareList.push(
-        <Square key={date.index} date={date} onSquareSelected={handleSquareSelected} />
-      );
+  for (let i = 0; i < squares.length; i++) {
+    const square = {
+      'index': squares[i].index,
+      'day': squares[i].date.day,
+      'month': squares[i].date.month,
+      'mood': squares[i].mood
+    };
 
-      index++;
-    }
+    squareList.push(
+      <Square key={square.index} date={square} onSquareSelected={handleSquareSelected} />
+    );
   }
 
   return (
-    <ul>{squareList}</ul>
+    <ul>{ squareList }</ul>
   );
 }
+
 export default SquareList;

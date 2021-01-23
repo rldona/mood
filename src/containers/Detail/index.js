@@ -38,7 +38,7 @@ const Detail = () => {
 
   return (
     <div className="Detail">
-      <Board config={config} />
+      <Board />
     </div>
   );
 }

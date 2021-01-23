@@ -6,11 +6,10 @@ import Loading from '../Loading';
 
 import './Board.css';
 
-const Board = (props) => {
+const Board = () => {
   const [squares, setSquare] = useState([]);
-  const { positions } = props.config;
 
-  const getLinks = async () => {
+  const getSquares = async () => {
     firestore.collection("mood-registry").onSnapshot((querySnapshot) => {
       const docs = [];
       querySnapshot.forEach((doc) => {
@@ -21,15 +20,14 @@ const Board = (props) => {
   };
 
   useEffect(() => {
-    getLinks();
+    getSquares();
   }, []);
 
   if (squares.length === 0) return (<Loading />);
 
   return (
     <div className="Board">
-      <Loading />
-      <SquareList positions={positions} />
+      <SquareList squares={ squares } />
     </div>
   );
 }

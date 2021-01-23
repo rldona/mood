@@ -1,6 +1,6 @@
 import './Square.css';
 
-function Square(props) {
+const Square = (props) => {
   const { index, day, month, mood } = props.date;
 
   const squareSelected = () => {
@@ -9,9 +9,9 @@ function Square(props) {
   }
 
   return (
-    <div className="Square theme" onClick={squareSelected}>
-      <p>{day}</p>
-      <span>{month}</span>
+    <div className="Square theme" onClick={ squareSelected }>
+      <p>{ day }</p>
+      <span>{ month }</span>
     </div>
   );
 }
