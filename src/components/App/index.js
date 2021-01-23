@@ -7,8 +7,8 @@ import {
   Redirect
 } from "react-router-dom";
 
-import Home from '../../pages/Home';
-import Detail from '../../pages/Detail';
+import Home from '../../containers/Home';
+import Detail from '../../containers/Detail';
 
 import './App.css';
 
