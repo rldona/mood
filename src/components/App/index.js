@@ -1,61 +1,45 @@
-import './App.css';
+import React, { useEffect, useState } from "react";
 
+import { firestore } from "../../common/firebase";
+import { config } from "../../common/config";
 import Board from '../Board';
 
-const config = {
-  positions: [
-    {
-      'month': 'Ene',
-      'days': 31
-    },
-    {
-      'month': 'Feb',
-      'days': 28
-    },
-    {
-      'month': 'Mar',
-      'days': 31
-    },
-    {
-      'month': 'Abr',
-      'days': 30
-    },
-    {
-      'month': 'May',
-      'days': 31
-    },
-    {
-      'month': 'Jun',
-      'days': 30
-    },
-    {
-      'month': 'Jul',
-      'days': 31
-    },
-    {
-      'month': 'Ago',
-      'days': 31
-    },
-    {
-      'month': 'Sep',
-      'days': 30
-    },
-    {
-      'month': 'Oct',
-      'days': 31
-    },
-    {
-      'month': 'Nov',
-      'days': 30
-    },
-    {
-      'month': 'Dic',
-      'days': 31
-    }
-  ]
-}
+import './App.css';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
+
+  const intDataFromFirestore = () => {
+    let squareList = [], index = 1;
+
+    for (let i = 0; i < config.positions.length; i++) {
+      for (let j = 1; j <= config.positions[i].days; j++) {
+        const date = {
+          'index': index,
+          'mood': 'none',
+          'date': {
+            'month': config.positions[i].month,
+            'day': j,
+          },
+        };
+        squareList.push(date);
+        firestore.collection("mood-registry").doc(`${index}`).set(date);
+        index++;
+      }
+    }
+
+    setData(squareList);
+
+    console.log('--- Render Control ---');
+  }
+
+  useEffect(() => {
+    intDataFromFirestore();
+    console.log('--- Render Control ---');
+  }, []);
+
+  if (data.length === 0) return (<div>Loading...</div>);
+
   return (
     <div className="App">
       <Board config={config} />

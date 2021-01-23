@@ -1,9 +1,11 @@
 .Board ul {
   display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: row;
   flex-wrap: wrap;
-  background-color: bisque;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2px;
+  /* overflow-y: scroll; */
 }

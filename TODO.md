@@ -1,6 +1,8 @@
-[] Contruir el array del trablero con toda su info: index, day, month, mood
-[] Subir la info a Firebase
+[OK] Configurar Firetore
+[OK] Contruir el array del trablero con toda su info: index, day, month, mood
+[OK] Subir la info a Firebase
 
+[] Añadir routing
 [] Crear pantalla principal en la que se pregunta por el estado de ánimo
 [] Almanenar el estado de ánimo en Firebase matheando la fecha actual (dia y mes) con el listado creado
 

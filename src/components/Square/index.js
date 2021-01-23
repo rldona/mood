@@ -11,6 +11,7 @@ function Square(props) {
   return (
     <div className="Square theme happy" onClick={activateLasers}>
       <p>{day}</p>
+      <span>{month}</span>
     </div>
   );
 }
