@@ -1,5 +1,7 @@
 import Square from '../Square';
 
+import { compare } from "../../common/utils";
+
 const handleSquareSelected = (square) => {
   console.log(square);
 }
@@ -7,7 +9,7 @@ const handleSquareSelected = (square) => {
 const SquareList = (props) => {
   const { squares } = props;
 
-  console.log(squares);
+  squares.sort(compare);
 
   let squareList = [];
 
