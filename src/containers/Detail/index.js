@@ -9,8 +9,6 @@ import Loading from '../../components/Loading';
 const setConfigMoodFirestore = (setIsLoading) => {
   let squareList = [], index = 1;
 
-  console.log('--- CONTROL POINT ---');
-
   for (let i = 0; i < config.positions.length; i++) {
     for (let j = 1; j <= config.positions[i].days; j++) {
       const date = {
@@ -30,7 +28,7 @@ const setConfigMoodFirestore = (setIsLoading) => {
   setIsLoading(true);
 }
 
-const Detail = () => {
+export default function Detail() {
   const [isLoading, setIsLoading] = useState(false);
 
   const intDataFromFirestore = async() => {
@@ -38,10 +36,8 @@ const Detail = () => {
     let moodDocs = await moodRef.get();
 
     if (moodDocs.empty) {
-      console.log('--- INIT CONFIG ---');
       setConfigMoodFirestore(setIsLoading);
     } else {
-      console.log('--- GET DATA ---');
       setIsLoading(true);
     }
   }
@@ -58,5 +54,3 @@ const Detail = () => {
     </div>
   );
 }
-
-export default Detail;

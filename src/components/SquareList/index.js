@@ -6,7 +6,7 @@ const handleSquareSelected = (square) => {
   console.log(square);
 }
 
-const SquareList = (props) => {
+export default function SquareList(props) {
   const { squares } = props;
 
   squares.sort(compare);
@@ -30,5 +30,3 @@ const SquareList = (props) => {
     <ul>{ squareList }</ul>
   );
 }
-
-export default SquareList;

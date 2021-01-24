@@ -8,5 +8,5 @@
 [OK] Cada elemento del tablero es clicable y se puede modificar la info del estado de ánimo
 
 [] Almanenar el estado de ánimo en Firebase matheando la fecha actual (dia y mes) con el listado creado
-[] Mostrar cada mes y dias en una única columana vertical (con un <div section="ene"></div> para cada mes)
+[] Pintar en el HTML cada mes y dias en una única columana vertical (con un <div section="ene"></div> para cada mes)
 [] Cuando el movil se hace horizontal, modificar la visualización a modo horiontal (esto aplica también en la versión tablet o desktop de la app)

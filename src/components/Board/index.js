@@ -6,20 +6,21 @@ import Loading from '../Loading';
 
 import './Board.css';
 
-const Board = () => {
+export default function Board() {
   const [squares, setSquare] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const getSquares = async () => {
-    // TODO: usar async/await para quitar el callback
-    firestore.collection("mood-registry").onSnapshot((querySnapshot) => {
-      const sqareList = [];
-      querySnapshot.forEach((square) => {
-        sqareList.push(square.data());
-      });
-      setSquare(sqareList);
-      setIsLoading(true);
+    const moodRef = firestore.collection('mood-registry');
+    let moodDocs = await moodRef.get();
+    const sqareList = [];
+
+    moodDocs.forEach((square) => {
+      sqareList.push(square.data());
     });
+
+    setSquare(sqareList);
+    setIsLoading(true);
   };
 
   useEffect(() => {
@@ -34,5 +35,3 @@ const Board = () => {
     </div>
   );
 }
-
-export default Board;
