@@ -32,6 +32,7 @@ export default function Board() {
       getSquares();
     } else {
       setSquare(squareListMock);
+      setIsLoading(true);
     }
   }, [isLoading]);
 
