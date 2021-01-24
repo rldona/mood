@@ -13,25 +13,26 @@
   font-size: 14px;
   padding: 7px 0 4px 0;
   text-align: center;
-  color: #444;
+  font-weight: 700;
+  color: #222;
 }
 
 .Square span {
   font-size: 15px;
   display: block;
   text-align: center;
-  font-weight: 700;
-  color: #444;
+  font-weight: 400;
+  color: #222;
 }
 
 .Square.theme.happy {
-  background-color: mediumseagreen;
+  background-color: #4CAF50;
 }
 
 .Square.theme.neutral {
-  background-color: goldenrod;
+  background-color: #FF9800;
 }
 
 .Square.theme.bad {
-  background-color: tomato;
+  background-color: #f44336;
 }

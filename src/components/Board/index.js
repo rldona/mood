@@ -8,28 +8,27 @@ import Loading from '../Loading';
 
 import './Board.css';
 
+const getSquares = async (setSquare, setIsLoading) => {
+  const moodRef = firestore.collection('mood-registry');
+  let moodDocs = await moodRef.get();
+
+  const sqareList = [];
+
+  moodDocs.forEach((square) => {
+    sqareList.push(square.data());
+  });
+
+  setSquare(sqareList);
+  setIsLoading(true);
+};
+
 export default function Board() {
   const [squares, setSquare] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const getSquares = async () => {
-    const moodRef = firestore.collection('mood-registry');
-    let moodDocs = await moodRef.get();
-    const sqareList = [];
-
-    moodDocs.forEach((square) => {
-      sqareList.push(square.data());
-    });
-
-    console.log(sqareList);
-
-    setSquare(sqareList);
-    setIsLoading(true);
-  };
-
   useEffect(() => {
     if (!squareListMock) {
-      getSquares();
+      getSquares(setSquare, setIsLoading);
     } else {
       setSquare(squareListMock);
       setIsLoading(true);

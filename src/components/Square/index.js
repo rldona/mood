@@ -9,7 +9,7 @@ const Square = (props) => {
   }
 
   return (
-    <div className="Square theme" onClick={ squareSelected }>
+    <div className={`Square theme ${mood}`} onClick={ squareSelected }>
       <p>{ day }</p>
       <span>{ month }</span>
     </div>

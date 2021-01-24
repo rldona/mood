@@ -1,6 +1,6 @@
 .Board ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
