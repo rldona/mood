@@ -50,3 +50,8 @@ table {
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+body {
+  font-family: Roboto;
+	font-size: 1/16em;
+}

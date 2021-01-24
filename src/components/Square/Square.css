@@ -9,13 +9,16 @@
 }
 
 .Square p {
-  padding: 7px;
+  font-size: 14px;
+  padding: 7px 0 4px 0;
   text-align: center;
 }
 
 .Square span {
+  font-size: 15px;
   display: block;
   text-align: center;
+  font-weight: 700;
 }
 
 .Square.theme.happy {

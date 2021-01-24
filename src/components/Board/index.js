@@ -8,22 +8,25 @@ import './Board.css';
 
 const Board = () => {
   const [squares, setSquare] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getSquares = async () => {
+    // TODO: usar async/await para quitar el callback
     firestore.collection("mood-registry").onSnapshot((querySnapshot) => {
-      const docs = [];
-      querySnapshot.forEach((doc) => {
-        docs.push(doc.data());
+      const sqareList = [];
+      querySnapshot.forEach((square) => {
+        sqareList.push(square.data());
       });
-      setSquare(docs);
+      setSquare(sqareList);
+      setIsLoading(true);
     });
   };
 
   useEffect(() => {
     getSquares();
-  }, []);
+  }, [isLoading]);
 
-  if (squares.length === 0) return (<Loading />);
+  if (!isLoading) return (<Loading />);
 
   return (
     <div className="Board">
