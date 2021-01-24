@@ -4,7 +4,6 @@ import { firestore } from "../../common/firebase";
 import { config } from "../../common/config";
 
 import Board from '../../components/Board';
-import Loading from '../../components/Loading';
 
 const setConfigMoodFirestore = (setIsLoading) => {
   let squareList = [], index = 1;
@@ -46,7 +45,7 @@ export default function Detail() {
     intDataFromFirestore();
   }, [isLoading]);
 
-  if (!isLoading) return (<Loading />)
+  if (!isLoading) return (null)
 
   return (
     <div className="Detail">

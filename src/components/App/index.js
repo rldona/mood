@@ -20,7 +20,7 @@ export default function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/detail">
+          <Route exact path="/calendar">
             <Detail />
           </Route>
           <Redirect from="*" to="/"/>

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+
 import { firestore } from "../../common/firebase";
+import { squareListMock } from "../../common/mocks";
 
 import SquareList from '../SquareList';
 import Loading from '../Loading';
@@ -19,12 +21,18 @@ export default function Board() {
       sqareList.push(square.data());
     });
 
+    console.log(sqareList);
+
     setSquare(sqareList);
     setIsLoading(true);
   };
 
   useEffect(() => {
-    getSquares();
+    if (!squareListMock) {
+      getSquares();
+    } else {
+      setSquare(squareListMock);
+    }
   }, [isLoading]);
 
   if (!isLoading) return (<Loading />);

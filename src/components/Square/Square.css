@@ -1,6 +1,7 @@
 .Square {
   display: block;
-  background-color: #999;
+  background-color: #ececec;
+  border-radius: 10px;
   border: 1px solid #FFF;
   width: 50px;
   height: 50px;
@@ -12,6 +13,7 @@
   font-size: 14px;
   padding: 7px 0 4px 0;
   text-align: center;
+  color: #444;
 }
 
 .Square span {
@@ -19,6 +21,7 @@
   display: block;
   text-align: center;
   font-weight: 700;
+  color: #444;
 }
 
 .Square.theme.happy {
