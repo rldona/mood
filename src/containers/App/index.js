@@ -7,6 +7,8 @@ import {
   Redirect
 } from "react-router-dom";
 
+import "../../common/firebase";
+
 import GuardedRoute from '../GuardedRoute';
 import Login from '../Login';
 import LoginGuard from '../LoginGuard';
@@ -16,7 +18,7 @@ import Calendar from '../Calendar';
 import './App.css';
 
 const isAuthenticated = () => {
-  return true;
+  return false;
 }
 
 export default function App() {

@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 import { config } from "../common/config";
 
@@ -16,6 +17,9 @@ const firebaseConfig = {
 export const fb = firebase.initializeApp(firebaseConfig);
 
 export const firestore = fb.firestore();
+export const auth = fb.auth();
+
+export const provider = new firebase.auth.GoogleAuthProvider();
 
 export const setConfigMoodFirestore = (setIsLoading) => {
   let squareList = [], index = 1;
