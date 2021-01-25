@@ -3,29 +3,34 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  // Route,
   Redirect
 } from "react-router-dom";
 
+import GuardedRoute from '../GuardedRoute';
+import Login from '../Login';
+import LoginGuard from '../LoginGuard';
 import Home from '../Home';
-import Detail from '../Detail';
+import Calendar from '../Calendar';
 
 import './App.css';
+
+const isAuthenticated = () => {
+  return true;
+}
 
 export default function App() {
   return (
     <div>
       <Router>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route exact path="/calendar">
-            <Detail />
-          </Route>
-          <Redirect from="*" to="/"/>
+          <LoginGuard path='/login' component={Login} auth={isAuthenticated()} />
+          <GuardedRoute path='/home' component={Home} auth={isAuthenticated()} />
+          <GuardedRoute path='/calendar' component={Calendar} auth={isAuthenticated()} />
+          <Redirect from="*" to="/home"/>
         </Switch>
       </Router>
     </div>
   );
 }
+

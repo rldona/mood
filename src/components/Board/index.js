@@ -30,6 +30,7 @@ export default function Board() {
     if (!squareListMock) {
       getSquares(setSquare, setIsLoading);
     } else {
+      console.log('mock');
       setSquare(squareListMock);
       setIsLoading(true);
     }

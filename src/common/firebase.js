@@ -1,4 +1,4 @@
-import firebase from 'firebase/app'
+import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import { config } from "../common/config";
@@ -13,7 +13,7 @@ const firebaseConfig = {
   measurementId: "G-LV31BVET5Y"
 };
 
-const fb = firebase.initializeApp(firebaseConfig);
+export const fb = firebase.initializeApp(firebaseConfig);
 
 export const firestore = fb.firestore();
 
@@ -40,10 +40,11 @@ export const setConfigMoodFirestore = (setIsLoading) => {
 }
 
 export const intDataFromFirestore = async(setIsLoading) => {
-  const moodRef = firestore.collection('mood-registry');
-  let moodDocs = await moodRef.get();
+  // const moodRef = firestore.collection('mood-registry');
+  // let moodDocs = await moodRef.get();
 
-  if (moodDocs.empty) {
+  // if (moodDocs.empty) {
+  if (false) {
     setConfigMoodFirestore(setIsLoading);
   } else {
     setIsLoading(true);

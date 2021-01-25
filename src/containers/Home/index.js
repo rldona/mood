@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 
 import { getCurrentDate } from '../../common/utils';
 
+/** funciones */
+
 export default function Home() {
   const [currentDate, setCurrentDate] = useState({});
 
