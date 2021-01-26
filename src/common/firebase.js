@@ -43,7 +43,7 @@ export const setConfigMoodFirestore = (setIsLoading) => {
   setIsLoading(true);
 }
 
-export const intDataFromFirestore = async(setIsLoading) => {
+export const intDataFromFirestore = async (setIsLoading) => {
   // const moodRef = firestore.collection('mood-registry');
   // let moodDocs = await moodRef.get();
 

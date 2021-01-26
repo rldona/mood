@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 
+import "../../common/firebase";
+import { auth } from '../../common/firebase';
+
 import {
   BrowserRouter as Router,
   Switch,
-  // Route,
   Redirect
 } from "react-router-dom";
-
-import "../../common/firebase";
-
-import { auth } from '../../common/firebase';
 
 import GuardedRoute from '../GuardedRoute';
 import Login from '../Login';
@@ -19,26 +17,17 @@ import Calendar from '../Calendar';
 
 import './App.css';
 
-const validateFirebaseLogin = (setLogged) => {
-  console.log('validando...');
-  auth.onAuthStateChanged(user => {
-    if (user) {
-      setLogged(true)
-    } else {
-      setLogged(null)
-    }
-  });
-}
-
-const isAuthenticated = (isLogged) => {
-  return isLogged;
-}
-
 export default function App() {
   const [isLogged, setLogged] = useState(false);
 
+  const validateFirebaseLogin = () => {
+    auth.onAuthStateChanged(user => {
+      setLogged(user ? true : null);
+    });
+  }
+
   useEffect(() => {
-    validateFirebaseLogin(setLogged);
+    validateFirebaseLogin();
   }, []);
 
   if (isLogged === false) return null;
@@ -47,9 +36,9 @@ export default function App() {
     <div>
       <Router>
         <Switch>
-          <LoginGuard path='/login' component={Login} auth={isAuthenticated(isLogged)} />
-          <GuardedRoute path='/home' component={Home} auth={isAuthenticated(isLogged)} />
-          <GuardedRoute path='/calendar' component={Calendar} auth={isAuthenticated(isLogged)} />
+          <LoginGuard path='/login' component={Login} auth={isLogged} />
+          <GuardedRoute path='/home' component={Home} auth={isLogged} />
+          <GuardedRoute path='/calendar' component={Calendar} auth={isLogged} />
           <Redirect from="*" to="/home"/>
         </Switch>
       </Router>
