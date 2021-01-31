@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-
-import { auth } from '../../common/firebase';
-
 import { useHistory } from "react-router-dom";
 
+import { auth } from '../../common/firebase';
 import { getCurrentDate } from '../../common/utils';
+
+import MoodSelector from '../../components/MoodSelector';
 
 export default function Home() {
   const [currentDate, setCurrentDate] = useState({});
@@ -20,10 +20,6 @@ export default function Home() {
     });
   }
 
-  const moodState = (state) => {
-    console.log(state);
-  }
-
   const goTo = (route) => {
     history.push(`/${route}`);
   }
@@ -37,9 +33,7 @@ export default function Home() {
       <h1>¿Cómo estás de ánimo hoy?</h1>
       <p>{currentDate.full}</p>
       <br />
-      <button onClick={() => moodState('happy')}>Feliz</button>
-      <button onClick={() => moodState('neutral')}>Normal</button>
-      <button onClick={() => moodState('bad')}>Mal</button>
+      <MoodSelector />
       <br /><br />
       <button onClick={() => goTo('calendar')}>Ver el calendario</button>
       <br /><br />
