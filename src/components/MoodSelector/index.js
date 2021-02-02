@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import './MoodSelector.css';
 
-export default function App() {
+export default function MoodSelector() {
   const [isActive, setActive] = useState('none');
 
   const moodState = (state) => {
