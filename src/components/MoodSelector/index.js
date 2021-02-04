@@ -1,7 +1,5 @@
 import React from "react";
 
-import MoodSelectorItem from '../MoodSelectorItem';
-
 import './MoodSelector.css';
 
 export default function MoodSelector(props) {
