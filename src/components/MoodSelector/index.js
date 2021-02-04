@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 import './MoodSelector.css';
 
-export default function MoodSelector() {
-  const [isActive, setActive] = useState('none');
+export default function MoodSelector(props) {
+  function MoodList() {
+    const moodItemComponent = props.moodList.map(mood =>
+      <li key={mood.id}>{mood.state}</li>
+    );
 
-  const moodState = (state) => {
-    console.log(state);
+    return (
+      <ul>{ moodItemComponent }</ul>
+    );
   }
-
-  useEffect(() => {
-  }, []);
 
   return (
     <>
-      Mood Selector: {isActive}
-      <button onClick={() => moodState('happy')}>Feliz</button>
-      <button onClick={() => moodState('neutral')}>Normal</button>
-      <button onClick={() => moodState('bad')}>Mal</button>
+      <MoodList />
     </>
   );
 }

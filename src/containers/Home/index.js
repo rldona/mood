@@ -24,6 +24,31 @@ export default function Home() {
     history.push(`/${route}`);
   }
 
+  const handleMoodSelected = (id) => {
+    console.log(id);
+    // set el nuevo JSON con el squared id selected
+    // moodList[0].isActive = true;
+    // setMooList(moodList)
+  }
+
+  const moodList = [
+    {
+      id: 0,
+      state: 'happy',
+      isActive: false
+    },
+    {
+      id: 1,
+      state: 'neutral',
+      isActive: false
+    },
+    {
+      id: 2,
+      state: 'bad',
+      isActive: false
+    }
+  ]
+
   useEffect(() => {
     setCurrentDate(getCurrentDate());
   }, []);
@@ -33,7 +58,7 @@ export default function Home() {
       <h1>¿Cómo estás de ánimo hoy?</h1>
       <p>{currentDate.full}</p>
       <br />
-      <MoodSelector />
+      <MoodSelector moodList={moodList} onMoodSelected={handleMoodSelected} />
       <br /><br />
       <button onClick={() => goTo('calendar')}>Ver el calendario</button>
       <br /><br />
