@@ -56,13 +56,21 @@ export default function Home() {
   return (
     <div className="Home">
       <h1>¿Cómo estás de ánimo hoy?</h1>
+
       <p>{currentDate.full}</p>
+
       <br />
+
       <MoodSelector moodList={moodList} onMoodSelected={handleMoodSelected} />
+
       <br /><br />
+
       <button onClick={() => goTo('calendar')}>Ver el calendario</button>
+
       <br /><br />
+
       <button onClick={logout}>Salir</button>
+
     </div>
   );
 }

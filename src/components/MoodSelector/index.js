@@ -1,11 +1,17 @@
 import React from "react";
 
+import MoodSelectorItem from '../MoodSelectorItem';
+
 import './MoodSelector.css';
 
 export default function MoodSelector(props) {
+  function onMoodSelected(mood) {
+    console.log(mood);
+  }
+
   function MoodList() {
     const moodItemComponent = props.moodList.map(mood =>
-      <li key={mood.id}>{mood.state}</li>
+      <MoodSelectorItem key={mood.id} mood={mood} onClick={() => onMoodSelected(mood)} />
     );
 
     return (
@@ -14,8 +20,6 @@ export default function MoodSelector(props) {
   }
 
   return (
-    <>
-      <MoodList />
-    </>
+    <MoodList />
   );
 }

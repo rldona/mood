@@ -1,9 +1,7 @@
 import React from "react";
 
-export default function MoodSelectorItem() {
+export default function MoodSelectorItem(props) {
   return (
-    <>
-      MoodSelectorItem
-    </>
+    <li>{ props.mood.state }</li>
   );
 }
