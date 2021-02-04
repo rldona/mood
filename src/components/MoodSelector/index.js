@@ -11,7 +11,7 @@ export default function MoodSelector(props) {
 
   function MoodList() {
     const moodItemComponent = props.moodList.map(mood =>
-      <MoodSelectorItem key={mood.id} mood={mood} onClick={() => onMoodSelected(mood)} />
+      <li key={mood.id} mood={mood} onClick={() => onMoodSelected(mood)}>{mood.state}</li>
     );
 
     return (
