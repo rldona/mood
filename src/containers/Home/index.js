@@ -8,6 +8,8 @@ import MoodSelector from '../../components/MoodSelector';
 
 export default function Home() {
   const [currentDate, setCurrentDate] = useState({});
+  const [moodList, setMoodList] = useState([]);
+
   let history = useHistory();
 
   const logout = () => {
@@ -25,52 +27,60 @@ export default function Home() {
   }
 
   const handleMoodSelected = (id) => {
-    console.log(id);
-    // set el nuevo JSON con el squared id selected
-    // moodList[0].isActive = true;
-    // setMooList(moodList)
-  }
+    let newMoodList = [
+      {
+        id: 0,
+        state: 'happy',
+        isActive: false
+      },
+      {
+        id: 1,
+        state: 'neutral',
+        isActive: false
+      },
+      {
+        id: 2,
+        state: 'bad',
+        isActive: false
+      }
+    ];
 
-  const moodList = [
-    {
-      id: 0,
-      state: 'happy',
-      isActive: false
-    },
-    {
-      id: 1,
-      state: 'neutral',
-      isActive: false
-    },
-    {
-      id: 2,
-      state: 'bad',
-      isActive: false
-    }
-  ]
+    newMoodList[id].isActive = true;
+
+    setMoodList(newMoodList);
+  }
 
   useEffect(() => {
     setCurrentDate(getCurrentDate());
+    setMoodList([
+      {
+        id: 0,
+        state: 'happy',
+        isActive: false
+      },
+      {
+        id: 1,
+        state: 'neutral',
+        isActive: false
+      },
+      {
+        id: 2,
+        state: 'bad',
+        isActive: false
+      }
+    ]);
   }, []);
 
   return (
     <div className="Home">
       <h1>¿Cómo estás de ánimo hoy?</h1>
-
       <p>{currentDate.full}</p>
-
       <br />
-
       <MoodSelector moodList={moodList} onMoodSelected={handleMoodSelected} />
-
       <br /><br />
-
       <button onClick={() => goTo('calendar')}>Ver el calendario</button>
-
       <br /><br />
-
       <button onClick={logout}>Salir</button>
-
     </div>
   );
 }
